@@ -1,3 +1,4 @@
+var bcrypt = require('bcryptjs')
 module.exports = {
     inputs: {
         emailAddress: {
@@ -24,7 +25,7 @@ module.exports = {
 
     fn: async function(inputs) {
         if(inputs.password == inputs.confirmPassword) {
-            var user = await User.create({fullName: inputs.fullName, password: inputs.password, emailAddress: inputs.emailAddress});
+            var user = await User.create({fullName: inputs.fullName, password: await bcrypt.hash(inputs.password, 12), emailAddress: inputs.emailAddress});
             this.res.redirect('/');
         } else { // error
             // var error = "Passwords do not match"

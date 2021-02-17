@@ -1,6 +1,6 @@
 module.exports = async function (req, res, proceed) {
     console.log("isLoggedIn")
-    if (req.me !== undefined) {
+    if (req.session.userId !== undefined) {
         return proceed();
     }
     res.statusCode = 498
