@@ -10,10 +10,12 @@ module.exports = {
     fn: async function(inputs) {
         console.log("inputs.password=" + await bcrypt.hash(inputs.password, 12))
         let user = await User.findOne({emailAddress: inputs.username}) //, password: await bcrypt.hash(inputs.password, 12)})
+        let match = false
+        match = await bcrypt.compare(inputs.password, user.password)
         console.log("db____.password=" + user.password)
         // console.log(user)
-        if(user !== undefined) {
-            this.req.me = user;
+        if(match) {
+            // this.req.me = user;
             this.req.session.userId = user.id
             console.log(this.req.session)
             // console.log(this.req)
