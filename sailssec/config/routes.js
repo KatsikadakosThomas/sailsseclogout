@@ -24,7 +24,8 @@ module.exports.routes = {
   '/login': {view: 'unregistered/login'},
   'POST /login': {action: 'account/login'},
   'POST /signup': {action: 'account/signup2'},
-  '/controlpanel': {action: 'account/controlpanel'}
+  '/controlpanel': {action: 'account/controlpanel'},
+  '/logout': {action: 'account/logout'}
 
 
   /***************************************************************************

@@ -18,6 +18,7 @@ module.exports.policies = {
   ***************************************************************************/
 
   // '*': true,
-  'account/controlpanel': 'isLoggedIn'
+  'account/controlpanel': 'isLoggedIn',
+  'account/logout': 'logout'
 
 };

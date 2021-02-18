@@ -14,6 +14,7 @@ module.exports = {
         match = await bcrypt.compare(inputs.password, user.password)
         console.log("db____.password=" + user.password)
         // console.log(user)
+        
         if(match) {
             // this.req.me = user;
             this.req.session.userId = user.id
